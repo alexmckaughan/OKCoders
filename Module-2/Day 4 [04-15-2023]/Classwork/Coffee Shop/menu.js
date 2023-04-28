@@ -26,15 +26,15 @@ function addRemoveCart(itemName, addOrRemove) {
   subTotalInfo.textContent = "$" + (shoppingCart.length * 2.99).toFixed(2);
   totalInfo.textContent =
     "$" + (taxRate * (shoppingCart.length * 2.99)).toFixed(2);
-  console.log(shoppingCart);
+  // console.log(shoppingCart);
   const currentElement = document.getElementById(itemName);
-  console.log("currentElement: " + currentElement.innerHTML);
-  console.log(currentElement.parentElement.previousElementSibling.innerText);
+  // console.log("currentElement: " + currentElement.innerHTML);
+  // console.log(currentElement.parentElement.previousElementSibling.innerText);
   const price =
     currentElement.parentElement.previousElementSibling.innerText.match(
       /\d+(?:\.\d+)?/g
     );
-  console.log("price: " + price);
+  // console.log("price: " + price);
 }
 
 const addDrink1 = document.getElementById("addDrink1");

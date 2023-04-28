@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 id="welcome-message"></h1>
+    <script>
+      const welcomeMessage = document.getElementById("welcome-message");
+      //   const age = prompt("How old are you?");
+      //   const isOfAge = Number(age) >= 21;
+      //   console.log(isOfAge);
+      //   // best to use literal comparisons like '===' or '!=='
+      //   // number comparisons: === !== > >= < <=
+      //   // string comparisons: === !==
+      //   // boolean logic: && ||
+      //   if (isOfAge) {
+      //     welcomeMessage.textContent =
+      //       "Great! You are over 21, check out our site";
+      //   } else {
+      //     welcomeMessage.textContent =
+      //       "Uh oh! You are not over 21, perhaps come back later";
+      //   }
+      //   FizzBuzz Exercise
+      // Write a function that returns the following, given the param passed in is a positive integer:
+      // for multiples of three, print "Fizz", for the multiples of five, print "Buzz".
+      // For numbers that are multiples of both three and five, print "FizzBuzz".
+      // For all other numbers print (console.log) the number
+      function fizzBuzz() {
+        const num = prompt("Enter a number:");
+        fizz = num % 3 === 0;
+        buzz = num % 5 === 0;
+        fizzBuzz = num % 15 === 0;
+        if ((fizz && buzz) || fizzBuzz) {
+          welcomeMessage.textContent = "FizzBuzz";
+        } else if (fizz) {
+          welcomeMessage.textContent = "Fizz";
+        } else if (buzz) {
+          welcomeMessage.textContent = "Buzz";
+        } else {
+          welcomeMessage.textContent = num;
+        }
+      }
+      document.addEventListener("DOMContentLoaded", function () {
+        fizzBuzz();
+      });
+      // fizzBuzz(3) // Fizz
+      // fizzBuzz(5) // Buzz
+      // fizzBuzz(15) // FizzBuzz
+      // fizzBuzz(2) // 2
+    </script>
+  </body>
+</html>
