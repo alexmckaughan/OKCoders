@@ -1,0 +1,93 @@
+* {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bolder;
+  font-size: 1.075rem;
+  box-sizing: border-box;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: 1.75rem;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.weather-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.weather-form input {
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  width: 99vw;
+}
+
+.weather-form button {
+  margin-top: 1.25rem;
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: none;
+  background-color: #1973d1;
+  color: white;
+  width: 99vw;
+  cursor: pointer;
+}
+
+.daycard-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.tilt-parent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  margin: 25px;
+  /* padding: 50px; */
+}
+
+img {
+  height: 25%;
+}
+
+.tilt-root {
+  height: 500px;
+  background-color: red;
+  width: 300px;
+  background-image: -webkit-linear-gradient(315deg, #1973d1 0%, #010280 100%);
+  background-image: linear-gradient(135deg, #1973d1 0%, #010280 100%);
+  transform-style: preserve-3d;
+  will-change: transform;
+  transform: perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1);
+}
+.tilt-child {
+  position: absolute;
+  width: 75%;
+  height: 75%;
+  top: 50%;
+  left: 50%;
+  transform: translateZ(30px) translateX(-50%) translateY(-50%);
+  box-shadow: 0 0 50px 0 rgba(51, 51, 51, 0.3);
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  padding: 10px;
+}
+.totally-centered {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
