@@ -1,33 +1,39 @@
 import React, { useState } from 'react';
-import { DndContext } from '@dnd-kit/core';
 import { ColumnContainer } from './ColumnContainer';
-import { TaskCard } from './TaskCard';
+import { Container, Grid } from '@mui/material';
 
-function KanbanBoard({ tasks }) {
-    const [parent, setParent] = useState(null);
+function KanbanBoard(props) {
+  const [tasks, setTasks] = useState(props.tasks);
 
-    console.log("tasks", tasks);
+  const columns = [
+    { id: "todo", title: "PENDING", status: "Pending" },
+    { id: "inProgress", title: "IN PROGRESS", status: "In Progress" },
+    { id: "done", title: "COMPLETED", status: "Completed" },
+  ];
 
-    return (
-        <DndContext onDragEnd={handleDragEnd}>
-            {parent === null ? <TaskCard id="draggable">Drag me</TaskCard> : null}
+  const columnStyles = {
+    container: {
+      display: "flex",
+      flexDirection: "column",
+    },
+    column: {
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "space-between",
+      border: "1px solid black",
+      padding: "20px",
+    },
+  };
 
-            {tasks.map((task) => (
-                <ColumnContainer key={task._id} id={task._id}>
-                    {parent === task._id ? <TaskCard TaskCard id={task._id}>{task.name}</TaskCard> : 'Drop here'}
-                </ColumnContainer>
-            ))
-            }
-        </DndContext >
-    );
-
-    function handleDragEnd(event) {
-        const { over } = event;
-
-        // If the item is dropped over a container, set it as the parent
-        // otherwise reset the parent to `null`
-        setParent(over ? over.id : null);
-    }
+  return (
+    <Container sx={columnStyles.container}>
+      <Grid container spacing={2} sx={{ flexGrow: 1 }}>
+        {columns.map((column) => (
+          <ColumnContainer key={column.id} column={column} tasks={tasks} columnStyles={columnStyles} />
+        ))}
+      </Grid>
+    </Container>
+  );
 };
 
 export default KanbanBoard;
